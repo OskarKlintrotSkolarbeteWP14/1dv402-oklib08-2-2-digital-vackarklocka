@@ -31,9 +31,16 @@ namespace _2_2_digital_vackarklocka
         /// </summary>
         public int AlarmHour
         {
-            get { return 0; }
+            get { return _alarmTime.Hour; }
 
-            set { }
+            set
+            {
+                if (value < 0 || value > 23)
+                {
+                    throw new ArgumentException();
+                }
+                _alarmTime.Hour = value;
+            }
 
         }
         /// <summary>
@@ -116,7 +123,7 @@ namespace _2_2_digital_vackarklocka
         /// <returns></returns>
         public bool TickTock()
         {
-            return false;
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Publik metod som har som uppgift att returnera en sträng representerande värdet av en instans 
@@ -126,7 +133,7 @@ namespace _2_2_digital_vackarklocka
         /// <returns></returns>
         public string ToString()
         {
-            return "Empty!";
+            throw new NotImplementedException();
         }
 
         #endregion

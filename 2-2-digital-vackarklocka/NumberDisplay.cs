@@ -99,7 +99,7 @@ namespace _2_2_digital_vackarklocka
         /// <returns></returns>
         public string ToString()
         {
-            return "Empty!";
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace _2_2_digital_vackarklocka
         /// <returns></returns>
         public string ToString(string format)
         {
-            return "Empty!";
+            throw new NotImplementedException();
         }
 
         #endregion
