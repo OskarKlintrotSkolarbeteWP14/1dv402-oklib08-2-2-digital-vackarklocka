@@ -84,6 +84,7 @@ namespace _2_2_digital_vackarklocka
         /// därför anropa den konstruktor i klassen som har två parametrar.
         /// </summary>
         public AlarmClock()
+            :this(0, 0)
         {
 
         }
@@ -95,6 +96,7 @@ namespace _2_2_digital_vackarklocka
         /// <param name="hour"></param>
         /// <param name="minute"></param>
         public AlarmClock(int hour, int minute)
+            : this(hour, minute, 0, 0)
         {
 
         }
