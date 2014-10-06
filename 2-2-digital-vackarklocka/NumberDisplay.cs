@@ -120,9 +120,9 @@ namespace _2_2_digital_vackarklocka
         /// utskrifter till konsolfönstret får göras av metoden.
         /// </summary>
         /// <returns></returns>
-        public override string ToString()
+        public override string ToString()                                   //https://www.youtube.com/watch?v=MwPZLPNR3ns
         {
-            throw new NotImplementedException();
+            return Number.ToString();
         }
 
         /// <summary>
@@ -137,7 +137,18 @@ namespace _2_2_digital_vackarklocka
         /// <returns></returns>
         public string ToString(string format)
         {
-            throw new NotImplementedException();
+            if (format == "0" ||format == "G")
+            {
+                return Number.ToString();
+            }
+            else if (format == "00")
+            {
+                return Number.ToString("00");                               //http://msdn.microsoft.com/en-us/library/0c899ak8(v=vs.110).aspx#Specifier0
+            }
+            else
+            {
+                throw new NotImplementedException();
+            }
         }
 
         #endregion
