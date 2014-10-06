@@ -31,7 +31,7 @@ namespace _2_2_digital_vackarklocka
         /// </summary>
         public int Hour
         {
-            get { return Convert.ToInt32(_hourDisplay.ToString("0")); }
+            get { return _hourDisplay.Number; }
 
             set { _hourDisplay.Number = value; }
         }
@@ -41,7 +41,7 @@ namespace _2_2_digital_vackarklocka
         /// </summary>
         public int Minute
         {
-            get { return Convert.ToInt32(_minuteDisplay.ToString("00")); }
+            get { return _minuteDisplay.Number; }
 
             set { _minuteDisplay.Number = value; }
         }
@@ -102,7 +102,7 @@ namespace _2_2_digital_vackarklocka
         /// <returns></returns>
         public override string ToString()
         {
-            return Hour + ":" + Minute;
+            return _hourDisplay.ToString("0") + ":" + _minuteDisplay.ToString("00");
         }
 
         #endregion
