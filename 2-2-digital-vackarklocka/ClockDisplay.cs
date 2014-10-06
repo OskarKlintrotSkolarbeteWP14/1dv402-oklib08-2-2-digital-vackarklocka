@@ -31,7 +31,7 @@ namespace _2_2_digital_vackarklocka
         /// </summary>
         public int Hour
         {
-            get { return 0; }
+            get { return _hourDisplay.Number; }
 
             set { }
         }

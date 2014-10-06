@@ -48,9 +48,13 @@ namespace _2_2_digital_vackarklocka
         /// </summary>
         public int AlarmMinute
         {
-            get { return 0; }
+            get { return _alarmTime.Minute; }
 
-            set { }
+            set
+            {
+                
+                _alarmTime.Minute = value;
+            }
 
         }
         /// <summary>
@@ -58,9 +62,16 @@ namespace _2_2_digital_vackarklocka
         /// </summary>
         public int Hour
         {
-            get { return 0; }
-
-            set { }
+            get { return _time.Hour; }
+            
+            set
+            {
+                if (value < 0 || value > 23)
+                {
+                    throw new ArgumentException();
+                }
+                _time.Hour = value;
+            }
 
         }
         /// <summary>
@@ -68,9 +79,16 @@ namespace _2_2_digital_vackarklocka
         /// </summary>
         public int Minute
         {
-            get { return 0; }
+            get { return _time.Minute; }
 
-            set { }
+            set
+            {
+                if (value < 0 || value > 59)
+                {
+                    throw new ArgumentException();
+                }
+                _time.Minute = value;
+            }
 
         }
 
@@ -111,6 +129,10 @@ namespace _2_2_digital_vackarklocka
         /// <param name="alarmMinute"></param>
         public AlarmClock(int hour, int minute, int alarmHour, int alarmMinute)
         {
+            Hour = hour;
+            Minute = minute;
+            AlarmHour = alarmHour;
+            AlarmMinute = alarmMinute;
 
         }
 
@@ -133,7 +155,7 @@ namespace _2_2_digital_vackarklocka
         /// utskrifter till konsolfönstret får göras av metoden.
         /// </summary>
         /// <returns></returns>
-        public string ToString()
+        public override string ToString()
         {
             throw new NotImplementedException();
         }
