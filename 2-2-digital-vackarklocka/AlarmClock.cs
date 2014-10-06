@@ -33,15 +33,7 @@ namespace _2_2_digital_vackarklocka
         {
             get { return _alarmTime.Hour; }
 
-            set
-            {
-                if (value < 0 || value > 23)
-                {
-                    throw new ArgumentException();
-                }
-                _alarmTime.Hour = value;
-            }
-
+            set { _alarmTime.Hour = value; }
         }
         /// <summary>
         /// Publik egenskap, som kapslar in det privata fältet _alarmTime och dess egenskap Minute.
@@ -50,12 +42,7 @@ namespace _2_2_digital_vackarklocka
         {
             get { return _alarmTime.Minute; }
 
-            set
-            {
-                
-                _alarmTime.Minute = value;
-            }
-
+            set { _alarmTime.Minute = value; }
         }
         /// <summary>
         /// Publik egenskap, som kapslar in det privata fältet _time och dess egenskap Hour.
@@ -63,15 +50,8 @@ namespace _2_2_digital_vackarklocka
         public int Hour
         {
             get { return _time.Hour; }
-            
-            set
-            {
-                if (value < 0 || value > 23)
-                {
-                    throw new ArgumentException();
-                }
-                _time.Hour = value;
-            }
+
+            set { _time.Hour = value; }
 
         }
         /// <summary>
@@ -81,14 +61,7 @@ namespace _2_2_digital_vackarklocka
         {
             get { return _time.Minute; }
 
-            set
-            {
-                if (value < 0 || value > 59)
-                {
-                    throw new ArgumentException();
-                }
-                _time.Minute = value;
-            }
+            set { _time.Minute = value; }
 
         }
 
@@ -129,11 +102,8 @@ namespace _2_2_digital_vackarklocka
         /// <param name="alarmMinute"></param>
         public AlarmClock(int hour, int minute, int alarmHour, int alarmMinute)
         {
-            Hour = hour;
-            Minute = minute;
-            AlarmHour = alarmHour;
-            AlarmMinute = alarmMinute;
-
+            _alarmTime = new ClockDisplay(alarmHour, alarmMinute);
+            _time = new ClockDisplay(hour, minute);
         }
 
         #endregion
@@ -147,7 +117,14 @@ namespace _2_2_digital_vackarklocka
         /// <returns></returns>
         public bool TickTock()
         {
-            throw new NotImplementedException();
+            _time.Increment();
+            _alarmTime.Increment();
+
+            if (_alarmTime.ToString() == _time.ToString())
+            {
+                return true;
+            }
+            return false;
         }
         /// <summary>
         /// Publik metod som har som uppgift att returnera en sträng representerande värdet av en instans 
@@ -157,7 +134,7 @@ namespace _2_2_digital_vackarklocka
         /// <returns></returns>
         public override string ToString()
         {
-            throw new NotImplementedException();
+            return _time.ToString() + " (" + _alarmTime.ToString() + ")";
         }
 
         #endregion
