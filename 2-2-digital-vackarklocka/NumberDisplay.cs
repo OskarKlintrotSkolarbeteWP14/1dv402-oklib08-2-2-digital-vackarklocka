@@ -135,7 +135,7 @@ namespace _2_2_digital_vackarklocka
         /// </summary>
         /// <param name="format"></param>
         /// <returns></returns>
-        public override string ToString(string format)
+        public string ToString(string format)
         {
             if (format == "0" ||format == "G")
             {
