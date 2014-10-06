@@ -137,7 +137,7 @@ namespace _2_2_digital_vackarklocka
         /// <returns></returns>
         public string ToString(string format)
         {
-            if (format == "0" ||format == "G")
+            if (format == "0" || format == "G")
             {
                 return Number.ToString();
             }
