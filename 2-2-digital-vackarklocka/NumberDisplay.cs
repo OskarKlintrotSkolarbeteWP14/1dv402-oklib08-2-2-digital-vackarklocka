@@ -31,9 +31,16 @@ namespace _2_2_digital_vackarklocka
         /// </summary>
         public int MaxNumber
         {
-            get { return 0; }
+            get { return _maxNumber; }
 
-            set { }
+            set
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException();
+                }
+                _maxNumber = value;
+            }
         }
 
         /// <summary>
@@ -43,9 +50,16 @@ namespace _2_2_digital_vackarklocka
         /// </summary>
         public int Number
         {
-            get { return 0; }
+            get { return _number; }
 
-            set { }
+            set
+            {
+                if (value < 0 || value > MaxNumber)
+                {
+                    throw new ArgumentException();
+                }
+                _number = value;
+            }
         }
 
         #endregion
@@ -57,8 +71,9 @@ namespace _2_2_digital_vackarklocka
         /// till NumberDisplay-obejkt men ingen tilldelning får ske i konstruktorns kropp, som måste 
         /// vara tom. Denna konstruktor måste därför anropa den konstruktor i klassen som har två parametrar.
         /// </summary>
-        /// <param name="maxNumber"></param>
+        /// <param name="maxNumber">Maximalt tillåtna värde på _number</param>
         public NumberDisplay(int maxNumber)
+            :this(maxNumber, 0)
         {
 
         }
@@ -68,11 +83,12 @@ namespace _2_2_digital_vackarklocka
         /// objektets fält tilldelas värdena parametrarna har. Detta är den enda av konstruktorerna 
         /// som får innehålla kod som tilldelar fält i klassen värden.
         /// </summary>
-        /// <param name="maxNumber"></param>
-        /// <param name="number"></param>
+        /// <param name="maxNumber">Maximalt tillåtna värde på _number</param>
+        /// <param name="number">Värdet på "tiden" som matas in</param>
         public NumberDisplay(int maxNumber, int number)
         {
-
+            MaxNumber = maxNumber;
+            Number = number;
         }
 
         #endregion
@@ -86,7 +102,14 @@ namespace _2_2_digital_vackarklocka
         /// </summary>
         public void Increment()
         {
-
+            if (Number >= MaxNumber)
+            {
+                Number = 0;
+            }
+            else
+            {
+                Number++;
+            }
         }
 
         /// <summary>
@@ -97,7 +120,7 @@ namespace _2_2_digital_vackarklocka
         /// utskrifter till konsolfönstret får göras av metoden.
         /// </summary>
         /// <returns></returns>
-        public string ToString()
+        public override string ToString()
         {
             throw new NotImplementedException();
         }
