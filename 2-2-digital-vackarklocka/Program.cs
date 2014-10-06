@@ -23,7 +23,9 @@ namespace _2_2_digital_vackarklocka
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+            AlarmClock test = new AlarmClock(2, 3, 23, 5);
 
+            Console.WriteLine(test.ToString());
         }
 
         /// <summary>
