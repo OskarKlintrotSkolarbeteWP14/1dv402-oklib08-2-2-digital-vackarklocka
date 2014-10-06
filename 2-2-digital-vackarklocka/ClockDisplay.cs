@@ -23,7 +23,7 @@ namespace _2_2_digital_vackarklocka
         private NumberDisplay _minuteDisplay;
 
         #endregion
-
+        
         #region Properties
 
         /// <summary>
@@ -31,9 +31,9 @@ namespace _2_2_digital_vackarklocka
         /// </summary>
         public int Hour
         {
-            get { return _hourDisplay.Number; }
+            get { return Convert.ToInt32(_hourDisplay.ToString("0")); }
 
-            set { }
+            set { _hourDisplay.Number = value; }
         }
 
         /// <summary>
@@ -41,9 +41,9 @@ namespace _2_2_digital_vackarklocka
         /// </summary>
         public int Minute
         {
-            get { return 0; }
+            get { return Convert.ToInt32(_minuteDisplay.ToString("00")); }
 
-            set { }
+            set { _minuteDisplay.Number = value; }
         }
 
         #endregion
@@ -57,6 +57,7 @@ namespace _2_2_digital_vackarklocka
         /// anropa den konstruktor i klassen som har två parametrar.
         /// </summary>
         public ClockDisplay()
+            :this(0, 0)
         {
 
         }
@@ -71,7 +72,8 @@ namespace _2_2_digital_vackarklocka
         /// <param name="minute"></param>
         public ClockDisplay(int hour, int minute)
         {
-
+            _hourDisplay = new NumberDisplay(23, hour);
+            _minuteDisplay = new NumberDisplay(59, minute);
         }
 
         #endregion
@@ -85,7 +87,11 @@ namespace _2_2_digital_vackarklocka
         /// </summary>
         public void Increment()
         {
-
+            _minuteDisplay.Increment();
+            if (_minuteDisplay.Number == 0)
+            {
+                _hourDisplay.Increment();
+            }
         }
 
         /// <summary>
@@ -94,9 +100,9 @@ namespace _2_2_digital_vackarklocka
         /// utskrifter till konsolfönstret får göras av metoden.
         /// </summary>
         /// <returns></returns>
-        public string ToString()
+        public override string ToString()
         {
-            throw new NotImplementedException();
+            return Hour + ":" + Minute;
         }
 
         #endregion
