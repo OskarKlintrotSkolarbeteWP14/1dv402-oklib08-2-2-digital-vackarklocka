@@ -41,6 +41,7 @@ namespace _2_2_digital_vackarklocka
         private static void ViewErrorMessage(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
             Console.ResetColor();
         }
 
