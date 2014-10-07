@@ -6,51 +6,13 @@ using System.Threading.Tasks;
 
 namespace _2_2_digital_vackarklocka
 {
-    class Program
+    class ClockTest
     {
 
-        #region Methods
-
-        /// <summary>
-        /// Metoden ska instansiera objekt av klassen AlarmClock och testa konstruktorerna, egenskaperna och metoderna.
-        /// </summary>
-        /// <param name="args"></param>
-        static void Main(string[] args)
+        public ClockTest()
         {
-            //AlarmClockTest();
-
-            ClockTest TestTheClock = new ClockTest();
-
-            Console.WriteLine("\n\n\n");
-            
-            AlarmClock RealClock = new AlarmClock(21, 30, 21, 35);
-            Run(RealClock, 10);
+            AlarmClockTest();
         }
-
-        /// <summary>
-        /// Privat statisk metod som har två parametrar. Den första parametern är en referens till AlarmClock-objekt. 
-        /// Den andra parametern är antalet minuter som AlarmClock-objektet ska gå (vilket lämpligen görs genom att 
-        /// låta ett AlarmClock-objekt göra upprepade anrop av metoden TickTock()).
-        /// </summary>
-        /// <param name="ac"></param>
-        /// <param name="minutes"></param>
-        private static void Run(AlarmClock ac, int minutes)
-        {
-            for (int i = 0; i < minutes; i++)
-            {
-                bool larm = ac.TickTock();
-
-                if (larm)
-                {
-                    ViewTestHeader(ac.ToString() + Strings.Larm);
-                }
-                else
-                {
-                    ViewTestHeader(ac.ToString());
-                }
-            }
-        }
-
         /// <summary>
         /// Privat statisk metoden som tar ett felmeddelande som argument och presenterar det.
         /// </summary>
@@ -235,7 +197,7 @@ namespace _2_2_digital_vackarklocka
             {
                 ViewErrorMessage(Test.Error_Minute);
             }
-            
+
             ViewTestHeader(Strings.HorizontalLine);
         }
 
@@ -246,7 +208,7 @@ namespace _2_2_digital_vackarklocka
         private static void Test7(AlarmClock testObject)
         {
             ViewTestHeader(Test.Test7);
-            
+
             try
             {
                 testObject = new AlarmClock(99, 99, 7, 35);
@@ -267,7 +229,5 @@ namespace _2_2_digital_vackarklocka
 
             ViewTestHeader(Strings.HorizontalLine);
         }
-
-        #endregion
     }
 }
