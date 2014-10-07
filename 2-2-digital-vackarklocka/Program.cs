@@ -19,8 +19,10 @@ namespace _2_2_digital_vackarklocka
         {
             AlarmClockTest();
 
+            Console.WriteLine("\n\n\n");
 
-
+            AlarmClock RealClock = new AlarmClock(21, 30, 21, 35);
+            Run(RealClock, 10);
         }
 
         /// <summary>
@@ -32,7 +34,19 @@ namespace _2_2_digital_vackarklocka
         /// <param name="minutes"></param>
         private static void Run(AlarmClock ac, int minutes)
         {
-            
+            for (int i = 0; i < minutes; i++)
+            {
+                bool larm = ac.TickTock();
+
+                if (larm)
+                {
+                    ViewTestHeader(ac.ToString() + Strings.Larm);
+                }
+                else
+                {
+                    ViewTestHeader(ac.ToString());
+                }
+            }
         }
 
         /// <summary>
