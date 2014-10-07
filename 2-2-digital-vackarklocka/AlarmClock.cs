@@ -118,7 +118,6 @@ namespace _2_2_digital_vackarklocka
         public bool TickTock()
         {
             _time.Increment();
-            _alarmTime.Increment();
 
             if (_alarmTime.ToString() == _time.ToString())
             {
