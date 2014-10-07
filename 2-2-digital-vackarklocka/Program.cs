@@ -17,8 +17,9 @@ namespace _2_2_digital_vackarklocka
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-
             AlarmClockTest();
+
+
 
         }
 
@@ -37,7 +38,7 @@ namespace _2_2_digital_vackarklocka
         /// <summary>
         /// Privat statisk metoden som tar ett felmeddelande som argument och presenterar det.
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">Felmeddelandet som ska pesenteras</param>
         private static void ViewErrorMessage(string message)
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -48,13 +49,16 @@ namespace _2_2_digital_vackarklocka
         /// <summary>
         /// Privat statisk metod som tar en sträng som argument och presenterar strängen.
         /// </summary>
-        /// <param name="header"></param>
+        /// <param name="header">Meddelandet som ska presenteras</param>
         private static void ViewTestHeader(string header)
         {
             Console.ResetColor();
             Console.WriteLine(header);
         }
 
+        /// <summary>
+        /// Metod som testar så att väckarklockan uppfyller alla krav
+        /// </summary>
         private static void AlarmClockTest()
         {
             AlarmClock TestObject = new AlarmClock();
@@ -74,6 +78,10 @@ namespace _2_2_digital_vackarklocka
             Test7(TestObject);
         }
 
+        /// <summary>
+        /// Test av standardkonstruktorn.
+        /// </summary>
+        /// <param name="testObject">Objektet som ska testas</param>
         private static void Test1(AlarmClock testObject)
         {
             testObject = new AlarmClock();
@@ -85,6 +93,10 @@ namespace _2_2_digital_vackarklocka
             ViewTestHeader(testResult);
         }
 
+        /// <summary>
+        /// Test av konstruktorn med två parametrar, (9, 42).
+        /// </summary>
+        /// <param name="testObject">Objektet som ska testas</param>
         private static void Test2(AlarmClock testObject)
         {
             testObject = new AlarmClock(9, 42);
@@ -95,6 +107,10 @@ namespace _2_2_digital_vackarklocka
             ViewTestHeader(testResult);
         }
 
+        /// <summary>
+        /// Test av konstruktorn med tre parametrar, (13, 24, 7, 35).
+        /// </summary>
+        /// <param name="testObject">Objektet som ska testas</param>
         private static void Test3(AlarmClock testObject)
         {
             testObject = new AlarmClock(13, 24, 7, 35);
@@ -105,6 +121,10 @@ namespace _2_2_digital_vackarklocka
             ViewTestHeader(testResult);
         }
 
+        /// <summary>
+        /// Ställer befintlig AlarmClock-object till 23:58 och låten den gå 13 minuter.
+        /// </summary>
+        /// <param name="testObject">Objektet som ska testas</param>
         private static void Test4(AlarmClock testObject)
         {
             testObject.Hour = 23;
@@ -124,6 +144,10 @@ namespace _2_2_digital_vackarklocka
             ViewTestHeader(Strings.HorizontalLine);
         }
 
+        /// <summary>
+        /// Ställer befintligt AlarmClock-objekt till tiden 6:12 och alarmtiden till 6:15 och låter den gå 6 minuter.
+        /// </summary>
+        /// <param name="testObject">Objektet som ska testas</param>
         private static void Test5(AlarmClock testObject)
         {
             testObject.Hour = 6;
@@ -152,6 +176,10 @@ namespace _2_2_digital_vackarklocka
             ViewTestHeader(Strings.HorizontalLine);
         }
 
+        /// <summary>
+        /// Testar egenskaperna så att undantag kastas då tid och alarmtid tilldelas felaktiga värden.
+        /// </summary>
+        /// <param name="testObject">Objektet som ska testas</param>
         private static void Test6(AlarmClock testObject)
         {
             ViewTestHeader(Test.Test6);
@@ -195,6 +223,10 @@ namespace _2_2_digital_vackarklocka
             ViewTestHeader(Strings.HorizontalLine);
         }
 
+        /// <summary>
+        /// Testar konstruktorer så att undantag kastas då tid och alarmtid tilldelas felaktiga värden.
+        /// </summary>
+        /// <param name="testObject">Objektet som ska testas</param>
         private static void Test7(AlarmClock testObject)
         {
             ViewTestHeader(Test.Test7);
