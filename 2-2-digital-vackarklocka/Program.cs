@@ -72,6 +72,8 @@ namespace _2_2_digital_vackarklocka
             Console.WriteLine(header);
         }
 
+        #region Test
+
         /// <summary>
         /// Metod som testar så att väckarklockan uppfyller alla krav
         /// </summary>
@@ -267,6 +269,8 @@ namespace _2_2_digital_vackarklocka
 
             ViewTestHeader(Strings.HorizontalLine);
         }
+
+        #endregion
 
         #endregion
     }
