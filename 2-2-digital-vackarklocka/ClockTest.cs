@@ -166,18 +166,18 @@ namespace _2_2_digital_vackarklocka
             {
                 testObject.Hour = 99;
             }
-            catch (Exception)
+            catch (ArgumentException ex)
             {
-                ViewErrorMessage(Test.Error_Hour);
+                ViewErrorMessage(ex.Message);
             }
 
             try
             {
                 testObject.Minute = 99;
             }
-            catch (Exception)
+            catch (ArgumentException ex)
             {
-                ViewErrorMessage(Test.Error_Minute);
+                ViewErrorMessage(ex.Message);
             }
 
             try

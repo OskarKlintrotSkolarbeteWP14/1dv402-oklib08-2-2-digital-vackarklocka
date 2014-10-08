@@ -37,7 +37,7 @@ namespace _2_2_digital_vackarklocka
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Fel maxvärde!");
                 }
                 _maxNumber = value;
             }
@@ -54,9 +54,13 @@ namespace _2_2_digital_vackarklocka
 
             set
             {
-                if (value < 0 || value > MaxNumber)
+                if (value < 0 || value > MaxNumber && MaxNumber == 23)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException(Test.Error_Hour);
+                }
+                if (value < 0 || value > MaxNumber && MaxNumber == 59)
+                {
+                    throw new ArgumentException(Test.Error_Minute);
                 }
                 _number = value;
             }
